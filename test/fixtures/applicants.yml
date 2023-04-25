@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  manager: MyString
+  mentor: MyString
+  unit: MyString
+  alert_date: 2023-04-24 10:14:44
+  employee_id: 1
+  promotion_month: MyString
+
+two:
+  name: MyString
+  manager: MyString
+  mentor: MyString
+  unit: MyString
+  alert_date: 2023-04-24 10:14:44
+  employee_id: 1
+  promotion_month: MyString
