@@ -1,0 +1,6 @@
+<%= @applicant.name %>'s Info
+<% @applicant.attributes.keys.each do |attribute|%>
+  <div>
+    <%=attribute%>: <%=@applicant[attribute]%>  
+  </div>
+<%end%>

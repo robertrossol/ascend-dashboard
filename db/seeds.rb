@@ -5,5 +5,5 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-Applicant.create({name: "Miranda Lundin", mentor:	"Lauren Kaplan", unit: "LC17"})
-Applicant.create({name: "Steven Gauthier", manager:	"Nicole Woltcheck", mentor:	"Lauren Kaplan", unit: "LC17",	employee_id: 31804})
+Applicant.create({name: "Miranda Jones", mentor:	"Lauren Mentorson", unit: "LC17"})
+Applicant.create({name: "Steven Smith", manager:	"Nicole M Anager", mentor:	"Lauren Mentorson", unit: "LC17",	employee_id: 31254})

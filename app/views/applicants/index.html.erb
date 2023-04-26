@@ -1,0 +1,30 @@
+<h1>Applicants</h1>
+
+<table class="zui-table">
+    <thead>
+        <tr>
+            <% Applicant.attribute_names.each do |attribute|%>
+              <th><%=attribute%></th>
+            <% end %>
+            <%# <th>Position</th>
+            <th>Height</th>
+            <th>Born</th>
+            <th>Salary</th> %>
+        </tr>
+    </thead>
+    <tbody>
+      <% @applicants.each do |applicant|%>
+        <tr>
+          <% applicant.attributes.values.each do |attribute|%>
+            <td>
+              <% if attribute == applicant.name %>
+                <a href="/applicants/<%= applicant.id %>"><%= applicant.name %></a>
+              <%else%>
+                <%=attribute%>  
+              <% end %>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+</table>
