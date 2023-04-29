@@ -14,6 +14,11 @@ Things you may want to cover:
 * Database creation
 
 * Database initialization
+  Either:
+    - run rails db:seed to seed the database with some sample data
+                            OR
+    - place your data file (in .xlsx format) in the lib folder and rename the file as 'data.xlsx'
+      - Acceptable headers for your data are as follows: name, manager, mentor, unit, alert_date, employee_id, and promotion_month
 
 * How to run the test suite
 
