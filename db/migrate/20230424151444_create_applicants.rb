@@ -1,7 +1,7 @@
 class CreateApplicants < ActiveRecord::Migration[7.0]
   def change
     create_table :applicants do |t|
-      t.string :name
+      t.string :name, null: false, unique: true
       t.string :manager
       t.string :mentor
       t.string :unit
@@ -11,5 +11,6 @@ class CreateApplicants < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
+    add_index :applicants, :name, unique: true
   end
 end

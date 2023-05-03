@@ -15,7 +15,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_24_151444) do
   enable_extension "plpgsql"
 
   create_table "applicants", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.string "manager"
     t.string "mentor"
     t.string "unit"
@@ -24,6 +24,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_24_151444) do
     t.string "promotion_month"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_applicants_on_name", unique: true
   end
 
 end

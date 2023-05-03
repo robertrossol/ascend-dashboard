@@ -1,14 +1,15 @@
 class Applicant < ApplicationRecord
+  validates :name, uniqueness: true
 
-  def self.to_a
+  # def self.to_a
     
-  end
+  # end
 
-  def self.to_h
-    {
-      id: id,
-      name: name,
-      manager: self.manager
-    }
-  end
+  # def self.to_h
+  #   {
+  #     id: id,
+  #     name: name,
+  #     manager: self.manager
+  #   }
+  # end
 end
