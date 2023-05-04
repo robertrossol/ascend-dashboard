@@ -2,17 +2,34 @@ class ApplicantsController < ApplicationController
 
   def index
     @applicants = Applicant.all
-    render "applicants/index"
+    render 'index'
   end
 
   def show
     applicant_id = params[:id]
     @applicant = Applicant.find_by(id: applicant_id)
-    render "applicants/show"
+    render "show"
+  end
+
+  def edit
+    applicant_id = params[:id]
+    @applicant = Applicant.find_by(id: applicant_id)
+    render "edit"
+  end
+
+  def update
+    applicant_id = params[:id]
+    @applicant = Applicant.find_by(id: applicant_id)
+
+    @applicant.attributes.keys.each do |attribute|
+      @applicant[attribute] = params[attribute.to_sym]
+    end
+    @applicant.save
+    redirect_to "/applicants/#{applicant_id}"
   end
 
   def new
-    render "applicants/new"
+    render "new"
   end
 
   def create
@@ -21,9 +38,8 @@ class ApplicantsController < ApplicationController
     applicant_data = parameters.each.with_object({}) do |param, hsh|
       hsh[param] = params[param]
     end
-    p applicant_data
     applicant = Applicant.new(applicant_data)
     applicant.save
-    redirect_to '/'
+    redirect_to '/applicants'
   end
 end

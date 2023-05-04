@@ -1,0 +1,12 @@
+<%= form_tag "/applicants/#{@applicant.id}", method: :patch do %>
+  <%= @applicant.name %>'s Info
+  <% @applicant.attributes.keys.each do |attribute|%>
+    <% att = attribute.to_sym %>
+    <div class="form-group">
+      <%= label_tag att %>
+      <%= text_field_tag att, @applicant[attribute], class: 'form-control' %>
+    </div>
+
+  <% end %>
+  <%= submit_tag "Edit Applicant", class: "btn btn-primary" %>
+<% end %>
