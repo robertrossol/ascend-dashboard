@@ -8,6 +8,8 @@ class ApplicantsController < ApplicationController
   def show
     applicant_id = params[:id]
     @applicant = Applicant.find_by(id: applicant_id)
+    @manager = @applicant.manager
+    @mentor = @applicant.mentor
     render "show"
   end
 
@@ -33,7 +35,7 @@ class ApplicantsController < ApplicationController
   end
 
   def create
-    headers = %w(name manager mentor unit alert_date employee_id promotion_month)
+    headers = %w(name manager_id mentor_id unit alert_date employee_id promotion_month)
     parameters = params.keys.select {|param| param.in?(headers)}
     applicant_data = parameters.each.with_object({}) do |param, hsh|
       hsh[param] = params[param]

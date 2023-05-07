@@ -1,7 +1,13 @@
 <%= @applicant.name %>'s Info
 <% @applicant.attributes.keys.each do |attribute|%>
   <div>
-    <%=attribute%>: <%=@applicant[attribute]%>  
+    <% if attribute == "manager_id"%>
+      <%="Manager"%>: <%= @manager.name%>
+    <% elsif attribute == "mentor_id"%>
+      <%="Mentor"%>: <%= @mentor.name%>
+    <% else %>
+      <%=attribute%>: <%=@applicant[attribute]%>
+    <% end %>
   </div>
 <%end%>
 <a href="<%=@applicant.id%>/edit">Edit Applicant</a>

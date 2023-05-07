@@ -11,12 +11,16 @@
     <tbody>
       <% @applicants.each do |applicant|%>
         <tr>
-          <% applicant.attributes.values.each do |attribute|%>
+          <% applicant.attributes.each do |attribute|%>
             <td>
-              <% if attribute == applicant.name %>
+              <% if attribute[0] == "name" %>
                 <a href="/applicants/<%= applicant.id %>"><%= applicant.name %></a>
+              <%elsif attribute[0] == "manager"%>
+                <%=applicant.manager.name%>  
+              <%elsif attribute[0] == "mentor"%>
+                <%=applicant.mentor.name%>  
               <%else%>
-                <%=attribute%>  
+                <%=attribute[1]%>  
               <% end %>
             </td>
           <% end %>
