@@ -8,3 +8,8 @@
 
   <%= button_to "Destroy this manager", @manager, method: :delete %>
 </div>
+
+<% @applicants = Applicant.where(manager_id: params["id"].to_i)%>
+
+<h1>Applicants</h1>
+<%= render "applicants/applicants" %>

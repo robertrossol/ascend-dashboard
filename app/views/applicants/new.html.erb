@@ -1,32 +1,9 @@
 <h1>New Applicant</h1>
-<%= form_tag '/applicants', method: :post do %>
-  <div class="form-group">
-    <%= label_tag :name %>
-    <%= text_field_tag :name, "", class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= label_tag :manager_id %>
-    <%= text_field_tag :manager_id, "", class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= label_tag :mentor_id %>
-    <%= text_field_tag :mentor_id, "", class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= label_tag :unit %>
-    <%= text_field_tag :unit, "", class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= label_tag :alert_date %>
-    <%= text_field_tag :alert_date, "", class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= label_tag :employee_id %>
-    <%= text_field_tag :employee_id, "", class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= label_tag :promotion_month %>
-    <%= text_field_tag :promotion_month, "", class: 'form-control' %>
-  </div>
-  <%= submit_tag "Add Applicant", class: "btn btn-primary" %>
-<% end %>
+
+<%= render "form", qpplicant: @applicant %>
+
+<br>
+
+<div>
+  <%= link_to "Back to applicants", applicants_path %>
+</div>

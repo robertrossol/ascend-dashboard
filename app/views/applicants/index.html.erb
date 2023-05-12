@@ -1,32 +1,5 @@
 <h1>Applicants</h1>
 
-<table class="zui-table">
-    <thead>
-        <tr>
-            <% Applicant.attribute_names.each do |attribute|%>
-              <th><%=attribute%></th>
-            <% end %>
-        </tr>
-    </thead>
-    <tbody>
-      <% @applicants.each do |applicant|%>
-        <tr>
-          <% applicant.attributes.each do |attribute|%>
-            <td>
-              <% if attribute[0] == "name" %>
-                <a href="/applicants/<%= applicant.id %>"><%= applicant.name %></a>
-              <%elsif attribute[0] == "manager"%>
-                <%=applicant.manager.name%>  
-              <%elsif attribute[0] == "mentor"%>
-                <%=applicant.mentor.name%>  
-              <%else%>
-                <%=attribute[1]%>  
-              <% end %>
-            </td>
-          <% end %>
-        </tr>
-      <% end %>
-    </tbody>
-</table>
+<%= render "applicants" %>
 
 <a href="applicants/new">Add New Applicant</a>

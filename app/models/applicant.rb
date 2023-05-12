@@ -1,6 +1,6 @@
 class Applicant < ApplicationRecord
-  belongs_to :manager
-  belongs_to :mentor
+  belongs_to :manager, foreign_key: 'manager_id'
+  belongs_to :mentor, foreign_key: 'mentor_id'
   validates :name, uniqueness: true
 
   # def self.to_a

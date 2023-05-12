@@ -2,7 +2,7 @@ class ApplicantsController < ApplicationController
 
   def index
     @applicants = Applicant.all
-    render 'index'
+    # render 'index'
   end
 
   def show
@@ -31,15 +31,26 @@ class ApplicantsController < ApplicationController
   end
 
   def new
-    render "new"
+    @applicant = Applicant.new
+    @manager = Manager.new
+    @mentor = @applicant.mentor
+    # render "new"
   end
 
   def create
-    headers = %w(name manager_id mentor_id unit alert_date employee_id promotion_month)
+    headers = %w(name applicant manager_id mentor_id unit alert_date employee_id promotion_month)
     parameters = params.keys.select {|param| param.in?(headers)}
+    # p parameters
     applicant_data = parameters.each.with_object({}) do |param, hsh|
-      hsh[param] = params[param]
+      if param == 'applicant'
+        params[param].each do |key, value|
+          hsh[key] = value.to_i
+        end
+      else
+        hsh[param] = params[param]
+      end
     end
+    p applicant_data
     applicant = Applicant.new(applicant_data)
     applicant.save
     redirect_to '/applicants'
