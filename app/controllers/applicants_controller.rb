@@ -41,7 +41,7 @@ class ApplicantsController < ApplicationController
     headers = %w(name applicant manager_id mentor_id unit alert_date employee_id promotion_month)
     parameters = params.keys.select {|param| param.in?(headers)}
     # p parameters
-    applicant_data = parameters.each.with_object({}) do |param, hsh|
+    applicant_data ||= parameters.each.with_object({}) do |param, hsh|
       if param == 'applicant'
         params[param].each do |key, value|
           hsh[key] = value.to_i

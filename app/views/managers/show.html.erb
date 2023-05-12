@@ -11,5 +11,5 @@
 
 <% @applicants = Applicant.where(manager_id: params["id"].to_i)%>
 
-<h1>Applicants</h1>
+<h1>Applicants managed by <%= @manager.name %></h1>
 <%= render "applicants/applicants" %>

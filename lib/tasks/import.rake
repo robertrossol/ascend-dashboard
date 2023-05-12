@@ -10,10 +10,19 @@ namespace :import do
       # create hash
       applicant_data = Hash[[headers, row].transpose]
       # next if applicant exists
-      if Applicant.exists?(name: applicant_data['name'])
+      if Applicant.exists?(name: applicant_data['name']) || !applicant_data['name']
         puts 'Applicant already exists'
         next
       end
+      manager = Manager.find_by(name: applicant_data["manager"]) || Manager.create({name: applicant_data["manager"]})
+      mentor = Mentor.find_by(name: applicant_data["mentor"]) || Mentor.create({name: applicant_data["mentor"]})
+
+      p applicant_data
+      applicant_data["manager_id"] = manager.id
+      applicant_data["mentor_id"] = mentor.id
+
+      applicant_data.delete("manager")
+      applicant_data.delete("mentor")
 
       applicant = Applicant.new(applicant_data)
       puts "Saving Applicant"

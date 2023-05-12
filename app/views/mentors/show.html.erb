@@ -8,3 +8,8 @@
 
   <%= button_to "Destroy this mentor", @mentor, method: :delete %>
 </div>
+
+<% @applicants = Applicant.where(mentor_id: @mentor.id)%>
+
+<h1>Applicants mentored by <%= @mentor.name %></h1>
+<%= render "applicants/applicants" %>
